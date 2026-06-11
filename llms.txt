@@ -1,0 +1,36 @@
+# Mindra
+
+Mindra e uma plataforma SaaS para consultores SST, RH e gestores que precisam implementar a NR-1 (Norma Regulamentadora de Riscos Psicossociais) em empresas brasileiras.
+
+## O que fazemos
+
+- Gestao de riscos psicossociais conforme NR-1
+- Questionarios e avaliacoes para colaboradores (DISC, MFP e personalizados)
+- Laudos automaticos e relatorios gerenciais em PDF
+- CRM de leads e propostas comerciais para consultores SST
+- Campanhas de saude mental e bem-estar corporativo
+- Plataforma multi-empresa para consultores com varios clientes
+
+## Para quem
+
+- Consultores de SST (Seguranca e Saude no Trabalho)
+- Profissionais de RH corporativo
+- Gestores de pessoas em empresas com 20+ colaboradores obrigados pela NR-1
+
+## Planos
+
+- Essencial: R$400/mes (ate 1.000 colaboradores)
+- Profissional: R$350/mes cobrado semestralmente
+- Anual: R$300/mes cobrado anualmente
+
+## Contato
+
+- Site: https://sejamindra.com.br
+- Plataforma: https://app.sejamindra.com.br
+- Contratacao: https://app.sejamindra.com.br/contratar
+- WhatsApp: +55 43 99685-0251
+
+## Blog
+
+Artigos sobre NR-1, saude mental no trabalho e gestao de riscos psicossociais:
+https://sejamindra.com.br/blog/

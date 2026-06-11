@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | Blog Mindra</title>
+<meta name="description" content="{{ description or site.description }}">
+<meta property="og:title" content="{{ title }} | Mindra">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="{% if layout == 'post.njk' %}article{% else %}website{% endif %}">
+<meta property="og:image" content="{{ image or (site.url + '/assets/og-blog.png') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<!-- GTM -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.gtmId }}');</script>
+<!-- Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','{{ site.pixelId }}');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ site.pixelId }}&ev=PageView&noscript=1"/></noscript>
+{% block head %}{% endblock %}
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#060D1F;--blue:#0E4194;--blue-l:#1a5abf;--orange:#EC6719;--white:#F0F4FF;--font:-apple-system,BlinkMacSystemFont,'Helvetica Neue',system-ui,sans-serif}
+body{font-family:var(--font);color:#111;line-height:1.7;background:#fff}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.nav{background:var(--navy);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none!important;color:#fff;font-weight:700;font-size:18px}
+.nav-logo-icon{width:28px;height:28px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:rgba(240,244,255,.7);font-size:14px;text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.nav-cta{background:var(--blue);color:#fff!important;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--blue-l)!important}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:720px;margin:0 auto;padding:0 24px}
+.cta-banner{background:linear-gradient(135deg,#0E4194,#1a5abf);border-radius:16px;padding:48px 40px;text-align:center;color:#fff;margin:60px 0}
+.cta-banner h2{font-size:28px;font-weight:700;margin-bottom:12px}
+.cta-banner p{opacity:.85;margin-bottom:28px;font-size:16px}
+.btn-primary{display:inline-block;background:#fff;color:var(--blue);padding:14px 32px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none!important;transition:transform .2s}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-wa{display:inline-block;background:#25D366;color:#fff;padding:12px 28px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none!important;margin-left:12px}
+footer{background:var(--navy);color:rgba(240,244,255,.6);padding:48px 24px;margin-top:80px;text-align:center}
+footer a{color:rgba(240,244,255,.7);text-decoration:none}
+footer a:hover{color:#fff}
+.footer-logo{font-size:20px;font-weight:700;color:#fff;margin-bottom:12px}
+.footer-links{display:flex;justify-content:center;gap:24px;margin:16px 0;flex-wrap:wrap;font-size:14px}
+@media(max-width:640px){.nav-links{display:none}.cta-banner{padding:32px 20px}.btn-wa{margin-left:0;margin-top:10px;display:block}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtmId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<nav class="nav">
+  <a href="{{ site.url }}" class="nav-logo"><div class="nav-logo-icon">M</div>mindra</a>
+  <ul class="nav-links">
+    <li><a href="{{ site.url }}">Inicio</a></li>
+    <li><a href="{{ site.blogUrl }}/">Blog</a></li>
+    <li><a href="{{ site.url }}/#planos">Planos</a></li>
+    <li><a href="{{ site.appUrl }}/contratar" class="nav-cta">Criar conta</a></li>
+  </ul>
+</nav>
+{% block content %}{% endblock %}
+<footer>
+  <div class="footer-logo">mindra</div>
+  <p style="font-size:14px;max-width:480px;margin:0 auto">Plataforma SaaS para gestao de riscos psicossociais NR-1</p>
+  <div class="footer-links">
+    <a href="{{ site.url }}">Site</a>
+    <a href="{{ site.blogUrl }}/">Blog</a>
+    <a href="{{ site.url }}/#planos">Planos</a>
+    <a href="{{ site.appUrl }}/contratar">Contratar</a>
+    <a href="https://wa.me/{{ site.whatsapp }}">WhatsApp</a>
+  </div>
+  <p style="font-size:13px;margin-top:24px">2025 Mindra. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

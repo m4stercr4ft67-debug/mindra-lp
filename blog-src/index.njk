@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Blog Mindra — NR-1, Saude Mental e Gestao de RH
+description: Artigos sobre NR-1, riscos psicossociais, saude mental no trabalho e gestao de pessoas para consultores SST e RH.
+permalink: /blog/
+eleventyExcludeFromCollections: true
+---
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"Blog Mindra",
+"description":"Artigos sobre NR-1, saude mental no trabalho e gestao de riscos psicossociais",
+"url":"{{ site.blogUrl }}/","publisher":{"@type":"Organization","name":"Mindra","url":"{{ site.url }}"}}
+</script>
+<style>
+.blog-hero{background:var(--navy);padding:72px 24px 56px;text-align:center;color:#fff}
+.blog-hero h1{font-size:clamp(28px,4vw,48px);font-weight:800;letter-spacing:-.5px;margin-bottom:16px}
+.blog-hero p{color:rgba(240,244,255,.7);font-size:18px;max-width:560px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;padding:56px 0}
+.post-card{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;transition:box-shadow .2s;background:#fff}
+.post-card:hover{box-shadow:0 8px 32px rgba(14,65,148,.12)}
+.post-card-body{padding:24px}
+.post-card-cat{display:inline-block;background:#EFF4FF;color:var(--blue);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px}
+.post-card h2{font-size:19px;font-weight:700;line-height:1.3;margin-bottom:10px}
+.post-card h2 a{color:#111;text-decoration:none}
+.post-card h2 a:hover{color:var(--blue)}
+.post-card p{color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:16px}
+.post-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#9ca3af}
+.read-more{color:var(--blue);font-weight:600;font-size:14px;text-decoration:none}
+.read-more:hover{text-decoration:underline}
+</style>
+{% endblock %}
+{% block content %}
+<div class="blog-hero">
+  <h1>Blog Mindra</h1>
+  <p>NR-1, saude mental no trabalho, riscos psicossociais e gestao de RH</p>
+</div>
+<div class="container">
+  {% set posts = collections.posts %}
+  {% if posts.length > 0 %}
+  <div class="blog-grid">
+    {% for post in posts %}
+    <article class="post-card">
+      <div class="post-card-body">
+        {% if post.data.category %}<span class="post-card-cat">{{ post.data.category }}</span>{% endif %}
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+        <div class="post-card-meta">
+          <span>{{ post.data.date | formatDate }}</span>
+          <a href="{{ post.url }}" class="read-more">Ler artigo &rarr;</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center;padding:80px 24px;color:#6b7280">
+    <p>Em breve: artigos sobre NR-1, saude mental e gestao de pessoas.</p>
+  </div>
+  {% endif %}
+  <div class="cta-banner">
+    <h2>Automatize a NR-1 na sua consultoria</h2>
+    <p>Questionarios, laudos, relatorios e CRM em uma unica plataforma.</p>
+    <a href="{{ site.appUrl }}/contratar?plano=essencial" class="btn-primary">Testar gratis</a>
+    <a href="https://wa.me/{{ site.whatsapp }}" class="btn-wa">WhatsApp</a>
+  </div>
+</div>
+{% endblock %}

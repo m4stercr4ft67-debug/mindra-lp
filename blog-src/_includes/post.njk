@@ -1,0 +1,48 @@
+---
+layout: base.njk
+---
+{% block head %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"{{ title }}","description":"{{ description }}",
+"datePublished":"{{ date | dateISO }}","dateModified":"{{ date | dateISO }}",
+"author":{"@type":"Organization","name":"Mindra","url":"{{ site.url }}"},
+"publisher":{"@type":"Organization","name":"Mindra","url":"{{ site.url }}"},
+"mainEntityOfPage":{"@type":"WebPage","@id":"{{ site.url }}{{ page.url }}"}}
+</script>
+<style>
+.post-hero{background:linear-gradient(180deg,#060D1F,#0E4194);padding:80px 24px 60px;color:#fff;text-align:center}
+.post-category{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+.post-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;line-height:1.2;max-width:760px;margin:0 auto 16px}
+.post-meta{color:rgba(255,255,255,.6);font-size:14px}
+.breadcrumb{padding:16px 24px;font-size:13px;color:#6b7280}
+.breadcrumb a{color:var(--blue);text-decoration:none}
+.post-body{padding:48px 0 60px}
+.post-body h2{font-size:26px;font-weight:700;margin:40px 0 16px;line-height:1.3}
+.post-body h3{font-size:20px;font-weight:600;margin:28px 0 12px}
+.post-body p{margin:0 0 20px;color:#374151;font-size:17px;line-height:1.8}
+.post-body ul,.post-body ol{margin:0 0 20px 24px;color:#374151;font-size:17px;line-height:1.8}
+.post-body li{margin-bottom:8px}
+.post-body strong{color:#111}
+.post-body blockquote{border-left:4px solid var(--blue);padding:16px 20px;background:#f0f4ff;border-radius:0 8px 8px 0;margin:24px 0;font-style:italic;color:#374151}
+.post-body hr{border:none;border-top:1px solid #e5e7eb;margin:40px 0}
+</style>
+{% endblock %}
+{% block content %}
+<div class="breadcrumb container">
+  <a href="{{ site.url }}">Inicio</a> &rsaquo; <a href="{{ site.blogUrl }}/">Blog</a> &rsaquo; {{ title }}
+</div>
+<div class="post-hero">
+  {% if category %}<span class="post-category">{{ category }}</span>{% endif %}
+  <h1>{{ title }}</h1>
+  <div class="post-meta">{{ date | formatDate }} &bull; {{ site.author }}</div>
+</div>
+<div class="container-narrow post-body">
+  {{ content | safe }}
+  <div class="cta-banner">
+    <h2>Implemente a NR-1 na sua empresa</h2>
+    <p>A Mindra automatiza questionarios, laudos e relatorios para consultores SST e RH.</p>
+    <a href="{{ site.appUrl }}/contratar?plano=essencial" class="btn-primary">Comecar agora</a>
+    <a href="https://wa.me/{{ site.whatsapp }}" class="btn-wa">WhatsApp</a>
+  </div>
+</div>
+{% endblock %}
