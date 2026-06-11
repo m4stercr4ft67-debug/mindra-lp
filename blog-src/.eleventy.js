@@ -7,7 +7,7 @@ module.exports = function(eleventyConfig) {
     return (d instanceof Date ? d : new Date(d)).toISOString().split("T")[0];
   });
   eleventyConfig.addCollection("posts", function(api) {
-    return api.getFilteredByGlob("blog-src/posts/*.md").reverse();
+    return api.getAll().filter(item => item.inputPath.includes("/posts/") && item.inputPath.endsWith(".md")).reverse();
   });
   return {
     dir: { input:"blog-src", output:"blog", includes:"_includes", data:"_data" },

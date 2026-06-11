@@ -59,7 +59,7 @@ footer a:hover{color:#fff}
     <li><a href="{{ site.appUrl }}/contratar" class="nav-cta">Criar conta</a></li>
   </ul>
 </nav>
-{% block content %}{% endblock %}
+{{ content | safe }}
 <footer>
   <div class="footer-logo">mindra</div>
   <p style="font-size:14px;max-width:480px;margin:0 auto">Plataforma SaaS para gestao de riscos psicossociais NR-1</p>
