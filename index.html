@@ -115,13 +115,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .cmp-row .s{color:var(--white);font-weight:600}
 
 /* FEATURES */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:var(--r);overflow:hidden}
-.feat{background:var(--navy2);padding:32px 28px;transition:background .2s}
-.feat:hover{background:var(--navy3)}
-.feat-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
-.feat-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.3px}
-.feat-desc{font-size:14px;color:var(--white2);line-height:1.65}
-.feat-tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.5px;padding:3px 8px;border-radius:4px}
+/* FEAT BENTO */
+.feat-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;background:var(--border);border-radius:var(--r);overflow:hidden}
+.feat{background:var(--navy2);padding:28px 26px;transition:background .2s,border-top-color .2s;border-top:2px solid transparent}
+.feat:hover{background:var(--navy3);border-top-color:var(--blue)}
+.feat.novo:hover{border-top-color:var(--orange)}
+.feat-b1{grid-column:span 6}
+.feat-b2{grid-column:span 4}
+.feat-b3{grid-column:span 3}
+.feat-bw{grid-column:span 12;display:flex;align-items:flex-start;gap:0;padding:36px}
+.feat-bw-inner{display:flex;align-items:flex-start;gap:40px;width:100%}
+.feat-bw-body{flex:1}
+.feat-bw-meta{flex:0 0 280px;padding-left:36px;border-left:1px solid var(--border)}
+.feat-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.feat-ic svg{display:block}
+.feat-novo-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange);background:var(--orange2);border:1px solid rgba(236,103,25,.2);border-radius:4px;padding:2px 8px;margin-bottom:10px}
+.feat-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.3px;line-height:1.3}
+.feat-b1 .feat-title{font-size:18px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.feat-bw .feat-title{font-size:19px;font-weight:800;letter-spacing:-.5px}
+.feat-desc{font-size:13px;color:var(--white2);line-height:1.7}
+.feat-b1 .feat-desc{font-size:14px}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.feat-list li{font-size:13px;color:var(--white2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.feat-list li::before{content:"→";color:var(--orange);font-weight:700;flex-shrink:0}
+/* ICP icons */
+.icp-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:var(--blue2);color:#7baaf7}
 
 /* ICP */
 .icp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -194,7 +212,11 @@ footer{padding:48px;border-top:1px solid var(--border);display:flex;align-items:
   .hero{padding:100px 20px 60px}
   .section{padding:64px 20px}
   footer{padding:32px 20px}
-  .cmp-grid,.feat-grid,.icp-grid,.pricing-grid{grid-template-columns:1fr}
+  .cmp-grid,.feat-bento,.icp-grid,.pricing-grid{grid-template-columns:1fr}
+  .feat-b1,.feat-b2,.feat-b3,.feat-bw{grid-column:span 1}
+  .feat-bw{flex-direction:column}
+  .feat-bw-inner{flex-direction:column;gap:20px}
+  .feat-bw-meta{flex:none;padding-left:0;border-left:none;border-top:1px solid var(--border);padding-top:20px}
   .steps{grid-template-columns:1fr 1fr;gap:32px}.steps::before{display:none}
 }
 </style>
@@ -322,93 +344,112 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ltag">Funcionalidades</div>
     <h2 class="stitle">Tudo que você precisa<br>em uma plataforma</h2>
     <p class="sdesc">Da coleta ao fechamento comercial — o fluxo inteiro do consultor SST ou profissional de GP, sem ferramentas externas.</p>
-    <div class="feat-grid">
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(14,65,148,.15)">📋</div>
+    <div class="feat-bento">
+
+      <!-- ROW 1: Featured halves -->
+      <div class="feat feat-b1">
+        <div class="feat-ic" style="background:rgba(14,65,148,.15);color:#7baaf7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><path d="M9 5a2 2 0 012-2h2a2 2 0 012 2M9 5a2 2 0 002 2h2a2 2 0 002-2"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
         <div class="feat-title">Campanhas Digitais</div>
         <div class="feat-desc">Envie HSE, COPSOQ ou Matriz AIHA por link para colaboradores. Acompanhe progresso em tempo real e controle o período de coleta.</div>
-        <span class="feat-tag" style="background:var(--blue2);color:#7baaf7">HSE · COPSOQ · AIHA</span>
+        <span class="feat-tag" style="background:var(--blue2);color:#7baaf7;margin-top:14px">HSE · COPSOQ · AIHA</span>
       </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(34,197,94,.1)">📊</div>
-        <div class="feat-title">Relatório Automático</div>
-        <div class="feat-desc">Laudo técnico gerado automaticamente com indicadores por dimensão, classificação de risco (trivial a muito alto) e plano de ação estruturado.</div>
-        <span class="feat-tag" style="background:rgba(34,197,94,.1);color:#22c55e">Pronto para auditoria</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(236,103,25,.15)">✨</div>
-        <div class="feat-title">Mindra AI</div>
-        <div class="feat-desc">IA que analisa campanhas, identifica empresas com risco mais alto, resume resultados e sugere planos de ação. Aceita PDFs externos.</div>
-        <span class="feat-tag" style="background:var(--orange2);color:var(--orange)">Powered by Gemini</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(14,65,148,.15)">📈</div>
-        <div class="feat-title">CRM Integrado</div>
-        <div class="feat-desc">Pipeline Kanban com Coach de CRM — rotina diária, alertas de follow-up e métricas de conversão (Novos Leads → Convertidos).</div>
-        <span class="feat-tag" style="background:var(--blue2);color:#7baaf7">Coach de rotina diária</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(168,85,247,.15)">📄</div>
-        <div class="feat-title">Propostas Automáticas</div>
-        <div class="feat-desc">Gere propostas profissionais em 30 segundos direto do lead. Escopo estruturado, valor, vencimento e link público para o cliente visualizar.</div>
-        <span class="feat-tag" style="background:rgba(168,85,247,.15);color:#a855f7">Modelo PHD</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(234,179,8,.1)">🎓</div>
-        <div class="feat-title">Mindflix</div>
-        <div class="feat-desc">Base de conhecimento exclusiva — conteúdo técnico sobre NR-1, instrumentos, boas práticas e atualizações regulatórias para consultores.</div>
-        <span class="feat-tag" style="background:rgba(234,179,8,.1);color:#eab308">Conteúdo exclusivo</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(99,102,241,.15)">🧠</div>
-        <div class="feat-title">Análise DISC + Forças VIA</div>
-        <div class="feat-desc">Perfil comportamental e forças de caráter por colaborador. Relatórios DISC e VIA gerados automaticamente, base para desenvolvimento individual e gestão de equipes.</div>
-        <span class="feat-tag" style="background:rgba(99,102,241,.15);color:#818cf8">NOVO · Perfil</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(236,103,25,.15)">🔒</div>
-        <div class="feat-title">Canal de Denúncias</div>
-        <div class="feat-desc">Canal anônimo, seguro e rastreável integrado à plataforma. Atende à Lei 14.457/2022 e LGPD. Registros auditáveis e fluxo de investigação interno.</div>
-        <span class="feat-tag" style="background:var(--orange2);color:var(--orange)">NOVO · Compliance</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(34,197,94,.1)">🔄</div>
-        <div class="feat-title">Avaliação 360°</div>
-        <div class="feat-desc">Feedback multifonte: pares, subordinados e gestores. Relatório consolidado com gaps de competência e recomendações priorizadas de desenvolvimento.</div>
-        <span class="feat-tag" style="background:rgba(34,197,94,.1);color:#22c55e">NOVO · Avaliação</span>
-      </div>
-      <div class="feat">
-        <div class="feat-ic" style="background:rgba(14,65,148,.15)">📚</div>
-        <div class="feat-title">Treinamentos Internos</div>
-        <div class="feat-desc">Crie trilhas de capacitação para colaboradores da empresa cliente. Saúde mental, NR-1 e bem-estar, com tracking de conclusão e emissão de certificados.</div>
-        <span class="feat-tag" style="background:var(--blue2);color:#7baaf7">NOVO · Educação</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- EXPANSÃO -->
-<section class="section">
-  <div class="inner">
-    <div class="ltag">Expansão</div>
-    <h2 class="stitle">Além do compliance:<br>uma plataforma de RH completa.</h2>
-    <p class="sdesc">A Mindra nasceu para NR-1. Empresas que passam pelo diagnóstico psicossocial precisam de mais: entender seus times, abrir canais seguros e desenvolver lideranças. Tudo no mesmo lugar.</p>
-  </div>
-  <div class="stats" style="margin-top:0">
-    <div class="stat">
-      <div class="stat-v" style="font-size:18px;letter-spacing:-.5px">Diagnóstico</div>
-      <div class="stat-l" style="color:var(--white);font-size:13px;margin-top:6px">DISC + VIA</div>
-      <div class="stat-l" style="margin-top:4px">Conheça seu time</div>
-    </div>
-    <div class="stat">
-      <div class="stat-v" style="font-size:18px;letter-spacing:-.5px">Desenvolvimento</div>
-      <div class="stat-l" style="color:var(--white);font-size:13px;margin-top:6px">360° + Treinamentos</div>
-      <div class="stat-l" style="margin-top:4px">Desenvolva seu time</div>
-    </div>
-    <div class="stat">
-      <div class="stat-v" style="font-size:18px;letter-spacing:-.5px">Governança</div>
-      <div class="stat-l" style="color:var(--white);font-size:13px;margin-top:6px">Canal de Denúncias</div>
-      <div class="stat-l" style="margin-top:4px">Proteja seu time</div>
+      <div class="feat feat-b1">
+        <div class="feat-ic" style="background:rgba(34,197,94,.1);color:#22c55e">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 17V12M12 17V8M17 17V12"/></svg>
+        </div>
+        <div class="feat-title">Relatório Automático</div>
+        <div class="feat-desc">Laudo técnico gerado com indicadores por dimensão, classificação de risco e plano de ação estruturado. Pronto para auditoria fiscal.</div>
+        <span class="feat-tag" style="background:rgba(34,197,94,.1);color:#22c55e;margin-top:14px">Pronto para auditoria</span>
+      </div>
+
+      <!-- ROW 2: Equal thirds -->
+      <div class="feat feat-b2">
+        <div class="feat-ic" style="background:rgba(236,103,25,.15);color:var(--orange)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 6.5H20l-5.5 4 2 6.5L12 15l-5.5 3.5 2-6.5L3 8.5h6.5L12 2z"/></svg>
+        </div>
+        <div class="feat-title">Mindra AI</div>
+        <div class="feat-desc">IA que analisa campanhas, identifica setores críticos e sugere planos de ação. Aceita PDFs externos.</div>
+      </div>
+
+      <div class="feat feat-b2">
+        <div class="feat-ic" style="background:rgba(14,65,148,.15);color:#7baaf7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2V12.46L22 3z"/></svg>
+        </div>
+        <div class="feat-title">CRM Integrado</div>
+        <div class="feat-desc">Pipeline Kanban com Coach de CRM, alertas de follow-up e métricas de conversão em tempo real.</div>
+      </div>
+
+      <div class="feat feat-b2">
+        <div class="feat-ic" style="background:rgba(14,65,148,.15);color:#7baaf7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="feat-title">Propostas Automáticas</div>
+        <div class="feat-desc">Gere propostas profissionais em 30 segundos direto do lead, com escopo, valor e link público.</div>
+      </div>
+
+      <!-- ROW 3: Quarters -->
+      <div class="feat feat-b3">
+        <div class="feat-ic" style="background:rgba(234,179,8,.12);color:#eab308">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none" opacity=".9"/></svg>
+        </div>
+        <div class="feat-title">Mindflix</div>
+        <div class="feat-desc">Base de conhecimento técnica sobre NR-1, instrumentos e boas práticas para consultores.</div>
+      </div>
+
+      <div class="feat feat-b3 novo">
+        <div class="feat-novo-badge">NOVO</div>
+        <div class="feat-ic" style="background:rgba(14,65,148,.15);color:#7baaf7">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="12" r="2.5"/><path d="M14 10h4M14 13h4M14 16h3"/></svg>
+        </div>
+        <div class="feat-title">DISC + Forças VIA</div>
+        <div class="feat-desc">Perfil comportamental e forças de caráter por colaborador, gerados automaticamente.</div>
+      </div>
+
+      <div class="feat feat-b3 novo">
+        <div class="feat-novo-badge">NOVO</div>
+        <div class="feat-ic" style="background:rgba(236,103,25,.15);color:var(--orange)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="feat-title">Canal de Denúncias</div>
+        <div class="feat-desc">Canal anônimo e rastreável integrado. Atende Lei 14.457/2022 e LGPD com registros auditáveis.</div>
+      </div>
+
+      <div class="feat feat-b3 novo">
+        <div class="feat-novo-badge">NOVO</div>
+        <div class="feat-ic" style="background:rgba(34,197,94,.1);color:#22c55e">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15"/></svg>
+        </div>
+        <div class="feat-title">Avaliação 360°</div>
+        <div class="feat-desc">Feedback multifonte com relatório consolidado de gaps e recomendações de desenvolvimento.</div>
+      </div>
+
+      <!-- ROW 4: Full-width featured -->
+      <div class="feat feat-bw novo">
+        <div class="feat-bw-inner">
+          <div style="display:flex;flex-direction:column;align-items:flex-start">
+            <div class="feat-novo-badge" style="margin-bottom:16px">NOVO</div>
+            <div class="feat-ic" style="background:rgba(14,65,148,.15);color:#7baaf7;margin-bottom:0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+          </div>
+          <div class="feat-bw-body">
+            <div class="feat-title">Plataforma de treinamentos internos</div>
+            <div class="feat-desc">Crie e gerencie trilhas de capacitação para colaboradores das empresas clientes. Conteúdos de saúde mental, NR-1 e bem-estar com tracking de conclusão e emissão de certificados.</div>
+          </div>
+          <div class="feat-bw-meta">
+            <ul class="feat-list">
+              <li>Trilhas personalizadas por empresa</li>
+              <li>Tracking de progresso individual</li>
+              <li>Certificados emitidos automaticamente</li>
+              <li>Conteúdos de saúde mental e NR-1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -421,7 +462,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="sdesc">Três perfis diferentes, um problema em comum: operar riscos psicossociais com profissionalismo e escala.</p>
     <div class="icp-grid">
       <div class="icp">
-        <div class="icp-em">🧑‍💼</div>
+        <div class="icp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12h.01"/></svg></div>
         <div class="icp-role">Consultor SST</div>
         <div class="icp-name">Atenda mais.<br>Entregue melhor.</div>
         <p class="icp-pain">Você perde horas montando relatório no Word e proposta no PowerPoint para cada cliente. Com a Mindra, você opera em escala sem aumentar equipe.</p>
@@ -433,7 +474,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="icp">
-        <div class="icp-em">🏢</div>
+        <div class="icp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v14M21 7v14M6 3h12v4H6z"/><path d="M9 11h2M13 11h2M9 15h2M13 15h2"/></svg></div>
         <div class="icp-role">RH Corporativo</div>
         <div class="icp-name">Conformidade<br>sem terceirizar.</div>
         <p class="icp-pain">Depender de consultoria externa para cada ciclo da NR-1 é caro e lento. Com a Mindra, seu RH conduz o processo com metodologia validada.</p>
@@ -445,7 +486,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
       </div>
       <div class="icp">
-        <div class="icp-em">👥</div>
+        <div class="icp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
         <div class="icp-role">Gestão de Pessoas</div>
         <div class="icp-name">Processo rastreável.<br>Zero surpresa.</div>
         <p class="icp-pain">Sem metodologia validada, qualquer resultado pode ser questionado em fiscalização. A Mindra entrega o processo estruturado do início ao fim.</p>
