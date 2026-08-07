@@ -207,7 +207,14 @@ footer{padding:48px;border-top:1px solid var(--border);display:flex;align-items:
 .f-links{display:flex;gap:24px}
 .f-links a{color:var(--white2);text-decoration:none;font-size:13px;transition:color .2s}
 .f-links a:hover{color:var(--white)}
+.f-links button.f-seo-toggle{background:none;border:none;padding:0;color:var(--white2);font-size:13px;font-family:var(--font);cursor:pointer;transition:color .2s}
+.f-links button.f-seo-toggle:hover{color:var(--white)}
 .f-legal{font-size:12px;color:var(--white3)}
+.f-seo{flex-basis:100%;max-height:0;overflow:hidden;transition:max-height .4s ease}
+.f-seo.open{max-height:700px}
+.f-seo-inner{padding-top:24px;margin-top:4px;border-top:1px solid var(--border);font-size:12px;line-height:1.9;color:var(--white3)}
+.f-seo-inner p{margin-bottom:14px}
+.f-seo-inner strong{color:var(--white2)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -603,7 +610,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="faq-item">
         <button class="faq-q">Os dados dos colaboradores são seguros? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Sim. Todos os dados são criptografados em trânsito e em repouso, em conformidade com a LGPD. As respostas são anônimas — apenas resultados agregados são exibidos ao consultor.</div>
+        <div class="faq-a">Sim. Toda comunicação com a plataforma é criptografada (HTTPS) e os dados ficam protegidos em repouso, com isolamento total entre empresas: nenhum cliente acessa dados de outro. Na Pesquisa de Clima Organizacional, a resposta é 100% anônima (nem a Mindra consegue vincular uma resposta a uma pessoa). Já no módulo NR-01 (Portaria MTE 1.419/2024), a norma pressupõe rastreabilidade para viabilizar ação corretiva real, por isso o dado é identificado na base, mas o acesso fica restrito exclusivamente ao consultor responsável pela sua empresa. Nenhuma tela do sistema (relatório ou dashboard) exibe resposta individual junto com o nome do colaborador: todo relatório entregue é agregado e pseudonimizado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como a Mindra isola os dados entre diferentes empresas-clientes? <div class="faq-ic">+</div></button>
+        <div class="faq-a">O isolamento é feito no nível do banco de dados (Row-Level Security), não depende de configuração manual. Um consultor com carteira de várias empresas nunca vê dados cruzados entre elas: a separação é estrutural, não uma regra que possa ser esquecida ou contornada por engano.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">A plataforma passa por testes de segurança? <div class="faq-ic">+</div></button>
+        <div class="faq-a">Sim. A plataforma passa por testes de segurança (pentest) periódicos, com correção contínua de qualquer ponto identificado. Os dados ficam hospedados em infraestrutura de nuvem de nível empresarial, com backup automático gerenciado pelo provedor: você não depende de processo manual para garantir a continuidade dos seus dados.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Qual instrumento usar — HSE, COPSOQ ou Matriz AIHA? <div class="faq-ic">+</div></button>
@@ -651,8 +666,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/blog/">Blog</a>
     <a href="/politica-de-privacidade">Política de Privacidade</a>
     <a href="https://app.sejamindra.com.br/auth">Login</a>
+    <button class="f-seo-toggle" id="seoToggle" aria-expanded="false">SEO</button>
   </div>
   <div class="f-legal">© 2026 Mindra · sejamindra.com.br</div>
+  <div class="f-seo" id="seoBlock">
+    <div class="f-seo-inner">
+      <p><strong>Adequação à NR-1:</strong> a Mindra é uma plataforma de gestão de riscos psicossociais que ajuda empresas a se adequarem à NR-1 e à Portaria MTE 1.419/2024, cobrindo desde o mapeamento de riscos psicossociais no trabalho até o laudo de riscos psicossociais exigido em fiscalização. O sistema apoia o Programa de Gerenciamento de Riscos (PGR) com foco em saúde mental no trabalho e saúde mental corporativa, reduzindo o risco de multa por não conformidade NR-1 e organizando a documentação NR-1 necessária para auditoria.</p>
+      <p><strong>Metodologias aplicadas:</strong> a avaliação de riscos psicossociais é feita com instrumentos validados cientificamente, como HSE Management Standards (questionário HSE), COPSOQ III (questionário COPSOQ Brasil) e Matriz AIHA, permitindo que cada consultor de SST escolha a metodologia mais adequada a cada diagnóstico.</p>
+      <p><strong>Para quem é:</strong> a plataforma NR-1 da Mindra atende RH corporativo, consultor SST, consultoria SST, SESMT, clínica de SST, engenheiro de segurança do trabalho, técnico de segurança do trabalho e profissionais de medicina do trabalho que precisam de um software de gestão de SST completo.</p>
+      <p><strong>O produto:</strong> como software NR-1 e sistema de gestão de riscos psicossociais, a Mindra funciona como plataforma para PGR e ferramenta de avaliação de riscos psicossociais, uma solução digital NR-1 para gestão de saúde ocupacional de ponta a ponta, do questionário ao laudo pronto para fiscalização NR-1.</p>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -688,6 +712,15 @@ function goTo(n){
   clearInterval(timer); timer=setInterval(()=>goTo((cur+1)%SCREENS.length),3800);
 }
 timer = setInterval(()=>goTo((cur+1)%SCREENS.length),3800);
+
+const seoToggle=document.getElementById("seoToggle");
+const seoBlock=document.getElementById("seoBlock");
+if(seoToggle){
+  seoToggle.addEventListener("click",()=>{
+    const open=seoBlock.classList.toggle("open");
+    seoToggle.setAttribute("aria-expanded",open);
+  });
+}
 
 document.querySelectorAll(".faq-q").forEach(btn=>{
   btn.addEventListener("click",()=>{
