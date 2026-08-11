@@ -27,6 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --border:rgba(240,244,255,.08);--border2:rgba(240,244,255,.15);
   --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',system-ui,sans-serif;
   --r:16px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--white);font-family:var(--font);line-height:1.6;overflow-x:hidden}
@@ -37,12 +38,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-logo-icon{width:32px;height:32px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
 .nav-logo-text{font-size:18px;font-weight:700;color:var(--white);letter-spacing:-.5px}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{color:var(--white2);text-decoration:none;font-size:14px;transition:color .2s}
+.nav-links a{color:var(--white2);text-decoration:none;font-size:14px;transition:color .15s var(--ease)}
 .nav-links a:hover{color:var(--white)}
 .nav-ctas{display:flex;gap:10px;align-items:center}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:none;cursor:pointer;font-family:var(--font);transition:all .2s;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:none;cursor:pointer;font-family:var(--font);transition:transform .15s var(--ease),background-color .15s var(--ease),border-color .15s var(--ease),color .15s var(--ease);font-weight:600}
+.btn:active{transform:scale(.96);transition-duration:.05s}
 .btn-sm{padding:8px 18px;font-size:14px;border-radius:8px}
 .btn-lg{padding:14px 28px;font-size:15px;border-radius:10px}
 .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--white2)}
@@ -83,7 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .cap-badge{background:var(--orange);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
 .cap-sub{font-size:13px;color:rgba(255,255,255,.75)}
 .mdots{display:flex;justify-content:center;gap:8px;margin-top:16px}
-.mdot{width:8px;height:8px;border-radius:50%;background:var(--white3);border:none;cursor:pointer;transition:all .25s;padding:0}
+.mdot{width:8px;height:8px;border-radius:50%;background:var(--white3);border:none;cursor:pointer;transition:width .25s var(--ease),background-color .25s var(--ease);padding:0}
 .mdot.active{background:var(--orange);width:24px;border-radius:4px}
 
 /* STATS */
@@ -120,7 +122,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* FEATURES */
 /* FEAT BENTO */
 .feat-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;background:var(--border);border-radius:var(--r);overflow:hidden}
-.feat{background:var(--navy2);padding:28px 26px;transition:background .2s,border-top-color .2s;border-top:2px solid transparent}
+.feat{background:var(--navy2);padding:28px 26px;transition:background .2s var(--ease),border-top-color .2s var(--ease);border-top:2px solid transparent}
 .feat:hover{background:var(--navy3);border-top-color:var(--blue)}
 .feat.novo:hover{border-top-color:var(--orange)}
 .feat-b1{grid-column:span 6}
@@ -146,7 +148,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* ICP */
 .icp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.icp{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;transition:all .2s}
+.icp{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;transition:border-color .2s var(--ease),background-color .2s var(--ease)}
 .icp:hover{border-color:rgba(14,65,148,.5);background:var(--navy3)}
 .icp-em{font-size:32px;margin-bottom:16px}
 .icp-role{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
@@ -166,7 +168,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.plan{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:36px 28px;position:relative;transition:all .2s;display:flex;flex-direction:column}
+.plan{background:var(--navy2);border:1px solid var(--border);border-radius:var(--r);padding:36px 28px;position:relative;transition:border-color .2s var(--ease);display:flex;flex-direction:column}
 .plan:hover{border-color:rgba(14,65,148,.4)}
 .plan.featured{border-color:var(--blue);background:linear-gradient(135deg,rgba(14,65,148,.12),var(--navy2))}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);border-radius:100px;padding:4px 16px;font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
@@ -179,7 +181,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .plan-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;flex:1}
 .plan-feats li{font-size:14px;color:var(--white2);display:flex;align-items:center;gap:8px}
 .plan-feats li::before{content:"✓";color:#22c55e;font-weight:700;flex-shrink:0}
-.plan-cta{display:block;width:100%;padding:12px;text-align:center;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s}
+.plan-cta{display:block;width:100%;padding:12px;text-align:center;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:border-color .2s var(--ease),background-color .2s var(--ease),color .2s var(--ease)}
 .pc-out{border:1px solid var(--border2);color:var(--white2)}
 .pc-out:hover{border-color:var(--blue);color:var(--white);background:var(--blue2)}
 .pc-fill{background:var(--blue);color:#fff;border:1px solid var(--blue)}
@@ -188,12 +190,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* FAQ */
 .faq{display:flex;flex-direction:column;gap:2px;border-radius:var(--r);overflow:hidden}
 .faq-item{background:var(--navy2)}
-.faq-q{width:100%;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;background:transparent;border:none;color:var(--white);font-size:15px;font-weight:600;text-align:left;cursor:pointer;transition:background .2s;font-family:var(--font)}
+.faq-q{width:100%;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;background:transparent;border:none;color:var(--white);font-size:15px;font-weight:600;text-align:left;cursor:pointer;transition:background-color .15s var(--ease);font-family:var(--font)}
 .faq-q:hover{background:var(--navy3)}
-.faq-ic{width:24px;height:24px;border-radius:50%;background:var(--blue2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--blue);transition:transform .3s}
+.faq-ic{width:24px;height:24px;border-radius:50%;background:var(--blue2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:var(--blue);transition:transform .3s var(--ease)}
 .faq-item.open .faq-ic{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:var(--white2);line-height:1.75;padding:0 24px}
-.faq-item.open .faq-a{max-height:220px;padding:0 24px 20px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease);font-size:14px;color:var(--white2);line-height:1.75}
+.faq-a-in{padding:0 24px 20px}
 
 /* FINAL CTA */
 .cta-final{padding:120px 48px;text-align:center;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(14,65,148,.15) 0%,transparent 70%);border-top:1px solid var(--border)}
@@ -205,13 +207,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 footer{padding:48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .f-brand{display:flex;align-items:center;gap:10px}
 .f-links{display:flex;gap:24px}
-.f-links a{color:var(--white2);text-decoration:none;font-size:13px;transition:color .2s}
+.f-links a{color:var(--white2);text-decoration:none;font-size:13px;transition:color .15s var(--ease)}
 .f-links a:hover{color:var(--white)}
-.f-links button.f-seo-toggle{background:none;border:none;padding:0;color:var(--white2);font-size:13px;font-family:var(--font);cursor:pointer;transition:color .2s}
+.f-links button.f-seo-toggle{background:none;border:none;padding:0;color:var(--white2);font-size:13px;font-family:var(--font);cursor:pointer;transition:color .15s var(--ease)}
 .f-links button.f-seo-toggle:hover{color:var(--white)}
 .f-legal{font-size:12px;color:var(--white3)}
-.f-seo{flex-basis:100%;max-height:0;overflow:hidden;transition:max-height .4s ease}
-.f-seo.open{max-height:700px}
+.f-seo{flex-basis:100%;max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
 .f-seo-inner{padding-top:24px;margin-top:4px;border-top:1px solid var(--border);font-size:12px;line-height:1.9;color:var(--white3)}
 .f-seo-inner p{margin-bottom:14px}
 .f-seo-inner strong{color:var(--white2)}
@@ -228,6 +229,12 @@ footer{padding:48px;border-top:1px solid var(--border);display:flex;align-items:
   .feat-bw-inner{flex-direction:column;gap:20px}
   .feat-bw-meta{flex:none;padding-left:0;border-left:none;border-top:1px solid var(--border);padding-top:20px}
   .steps{grid-template-columns:1fr 1fr;gap:32px}.steps::before{display:none}
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .feat,.icp,.plan,.step,.cmp-col{transform:none!important}
 }
 </style>
 <!-- Meta Pixel -->
@@ -606,35 +613,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="faq" id="faq">
       <div class="faq-item">
         <button class="faq-q">Preciso instalar algum software? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Não. A Mindra é 100% web — acesse pelo navegador de qualquer dispositivo, sem instalação. Basta criar sua conta.</div>
+        <div class="faq-a"><div class="faq-a-in">Não. A Mindra é 100% web — acesse pelo navegador de qualquer dispositivo, sem instalação. Basta criar sua conta.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Os dados dos colaboradores são seguros? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Sim. Toda comunicação com a plataforma é criptografada (HTTPS) e os dados ficam protegidos em repouso, com isolamento total entre empresas: nenhum cliente acessa dados de outro. Na Pesquisa de Clima Organizacional, a resposta é 100% anônima (nem a Mindra consegue vincular uma resposta a uma pessoa). Já no módulo NR-01 (Portaria MTE 1.419/2024), a norma pressupõe rastreabilidade para viabilizar ação corretiva real, por isso o dado é identificado na base, mas o acesso fica restrito exclusivamente ao consultor responsável pela sua empresa. Nenhuma tela do sistema (relatório ou dashboard) exibe resposta individual junto com o nome do colaborador: todo relatório entregue é agregado e pseudonimizado.</div>
+        <div class="faq-a"><div class="faq-a-in">Sim. Toda comunicação com a plataforma é criptografada (HTTPS) e os dados ficam protegidos em repouso, com isolamento total entre empresas: nenhum cliente acessa dados de outro. Na Pesquisa de Clima Organizacional, a resposta é 100% anônima (nem a Mindra consegue vincular uma resposta a uma pessoa). Já no módulo NR-01 (Portaria MTE 1.419/2024), a norma pressupõe rastreabilidade para viabilizar ação corretiva real, por isso o dado é identificado na base, mas o acesso fica restrito exclusivamente ao consultor responsável pela sua empresa. Nenhuma tela do sistema (relatório ou dashboard) exibe resposta individual junto com o nome do colaborador: todo relatório entregue é agregado e pseudonimizado.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Como a Mindra isola os dados entre diferentes empresas-clientes? <div class="faq-ic">+</div></button>
-        <div class="faq-a">O isolamento é feito no nível do banco de dados (Row-Level Security), não depende de configuração manual. Um consultor com carteira de várias empresas nunca vê dados cruzados entre elas: a separação é estrutural, não uma regra que possa ser esquecida ou contornada por engano.</div>
+        <div class="faq-a"><div class="faq-a-in">O isolamento é feito no nível do banco de dados (Row-Level Security), não depende de configuração manual. Um consultor com carteira de várias empresas nunca vê dados cruzados entre elas: a separação é estrutural, não uma regra que possa ser esquecida ou contornada por engano.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">A plataforma passa por testes de segurança? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Sim. A plataforma passa por testes de segurança (pentest) periódicos, com correção contínua de qualquer ponto identificado. Os dados ficam hospedados em infraestrutura de nuvem de nível empresarial, com backup automático gerenciado pelo provedor: você não depende de processo manual para garantir a continuidade dos seus dados.</div>
+        <div class="faq-a"><div class="faq-a-in">Sim. A plataforma passa por testes de segurança (pentest) periódicos, com correção contínua de qualquer ponto identificado. Os dados ficam hospedados em infraestrutura de nuvem de nível empresarial, com backup automático gerenciado pelo provedor: você não depende de processo manual para garantir a continuidade dos seus dados.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Qual instrumento usar — HSE, COPSOQ ou Matriz AIHA? <div class="faq-ic">+</div></button>
-        <div class="faq-a">A Mindra orienta na escolha. Em geral: HSE para diagnóstico amplo de clima e risco; COPSOQ quando há suspeita de sofrimento psíquico ou alta rotatividade; Matriz AIHA para classificação conforme NR-1. Você pode combinar instrumentos na mesma empresa.</div>
+        <div class="faq-a"><div class="faq-a-in">A Mindra orienta na escolha. Em geral: HSE para diagnóstico amplo de clima e risco; COPSOQ quando há suspeita de sofrimento psíquico ou alta rotatividade; Matriz AIHA para classificação conforme NR-1. Você pode combinar instrumentos na mesma empresa.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">O relatório gerado é aceito em fiscalização? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Sim. O laudo é estruturado conforme os requisitos da Portaria MTE 1.419/2024 — inclui identificação de fatores organizacionais, indicadores por dimensão, classificação de risco e plano de ação. Exportável em PDF com rastreabilidade de data e metodologia.</div>
+        <div class="faq-a"><div class="faq-a-in">Sim. O laudo é estruturado conforme os requisitos da Portaria MTE 1.419/2024 — inclui identificação de fatores organizacionais, indicadores por dimensão, classificação de risco e plano de ação. Exportável em PDF com rastreabilidade de data e metodologia.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Posso usar para múltiplas empresas-clientes? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Sim. Você cadastra quantas empresas precisar (respeitando o limite de vidas do plano). Cada empresa tem seus próprios colaboradores, campanhas e histórico de relatórios.</div>
+        <div class="faq-a"><div class="faq-a-in">Sim. Você cadastra quantas empresas precisar (respeitando o limite de vidas do plano). Cada empresa tem seus próprios colaboradores, campanhas e histórico de relatórios.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Como funciona o onboarding? <div class="faq-ic">+</div></button>
-        <div class="faq-a">Nos planos Profissional e Anual, o onboarding é guiado por um especialista da Mindra. No plano Essencial, você tem acesso ao Mindflix com tutoriais completos em vídeo.</div>
+        <div class="faq-a"><div class="faq-a-in">Nos planos Profissional e Anual, o onboarding é guiado por um especialista da Mindra. No plano Essencial, você tem acesso ao Mindflix com tutoriais completos em vídeo.</div></div>
       </div>
     </div>
   </div>
@@ -719,6 +726,7 @@ if(seoToggle){
   seoToggle.addEventListener("click",()=>{
     const open=seoBlock.classList.toggle("open");
     seoToggle.setAttribute("aria-expanded",open);
+    seoBlock.style.maxHeight=open?seoBlock.scrollHeight+"px":"0";
   });
 }
 
@@ -726,8 +734,15 @@ document.querySelectorAll(".faq-q").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const item=btn.closest(".faq-item");
     const was=item.classList.contains("open");
-    document.querySelectorAll(".faq-item").forEach(i=>i.classList.remove("open"));
-    if(!was)item.classList.add("open");
+    document.querySelectorAll(".faq-item").forEach(i=>{
+      i.classList.remove("open");
+      i.querySelector(".faq-a").style.maxHeight="0";
+    });
+    if(!was){
+      item.classList.add("open");
+      const a=item.querySelector(".faq-a");
+      a.style.maxHeight=a.scrollHeight+"px";
+    }
   });
 });
 
@@ -735,8 +750,8 @@ const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity="1";e.target.style.transform="translateY(0)"}});
 },{threshold:0.1});
 document.querySelectorAll(".feat,.icp,.plan,.step,.cmp-col").forEach(el=>{
-  el.style.opacity="0"; el.style.transform="translateY(20px)";
-  el.style.transition="opacity .5s ease,transform .5s ease";
+  el.style.opacity="0"; el.style.transform="translateY(14px)";
+  el.style.transition="opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1)";
   obs.observe(el);
 });
 </script>
